@@ -20,7 +20,7 @@ This repository contains a FastAPI application that serves as a machine learning
    ```
 
 **Usage:**
-1. Ensure that the pre-trained machine learning model file (`ContentBasedFiltering.pkl`) is placed in the `models` directory.
+1. Ensure that the pre-trained machine learning model file (`model.pkl`) is placed in the `models` directory.
 2. Start the FastAPI server by running the `app.py` script:
    ```
    uvicorn app:app --host 127.0.0.1 --port 8000

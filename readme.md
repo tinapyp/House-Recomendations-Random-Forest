@@ -30,9 +30,9 @@ This repository contains a FastAPI application that serves as a machine learning
    POST http://127.0.0.1:8000/predict
    {
        "Usia": 35,
-       "Status Pernikahan": "Married",
+       "Status Pernikahan": "Sudah Menikah",
        "Jumlah Anak": 2,
-       "Pendapatan/Bulan": "High",
+       "Pendapatan/Bulan": "Rp. 5.000.000 - Rp. 10.000.000",
        "Fasilitas Yang Diinginkan": "Garden Lounge, Masjid",
        "Preferensi Lingkungan": "Dekat Dengan Tempat Ibadah, Dekat Dengan Sarana Perbelanjaan"
    }

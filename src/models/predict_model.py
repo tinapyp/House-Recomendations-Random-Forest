@@ -93,4 +93,11 @@ def predict_model(model_path: str, data_to_predict):
     X_input = pd.DataFrame(transformed_data)
     y_pred = model.predict(X_input)
 
-    return y_pred
+    y_pred = y_pred.tolist()
+
+    prediction = {
+        "namaPerumahan": y_pred[0][0],
+        "jenisRumah": y_pred[0][1],
+        "tipeRumah": y_pred[0][2],
+    }
+    return prediction

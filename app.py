@@ -1,12 +1,29 @@
 from fastapi import FastAPI, HTTPException, Request
-from fastapi.encoders import jsonable_encoder
 from src.models.predict_model import predict_model
+from fastapi.middleware.cors import CORSMiddleware
 
 app = FastAPI()
+# Allow CORS for all origins with all methods and headers
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=["*"],
+    allow_credentials=True,
+    allow_methods=["GET", "POST", "PUT", "DELETE", "OPTIONS"],
+    allow_headers=["*"],
+)
 
 
 @app.post("/predict")
-async def predict(request: Request):
+async def predict(data: dict):
+    try:
+        predictions = predict_model("models/model.pkl", data)
+        return predictions
+    except Exception as e:
+        raise HTTPException(status_code=500, detail=str(e))
+
+
+@app.post("/model-prediction")
+async def model_prediction(request: Request):
     try:
         data = await request.form()
 
@@ -29,7 +46,7 @@ async def predict(request: Request):
         }
 
         predictions = predict_model("models/model.pkl", data_dict)
-        return predictions.tolist()
+        return predictions
     except Exception as e:
         raise HTTPException(status_code=500, detail=str(e))
 

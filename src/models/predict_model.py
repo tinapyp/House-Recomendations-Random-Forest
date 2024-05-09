@@ -88,7 +88,7 @@ def predict_model(model_path: str, data_to_predict):
         },
     }
 
-    print(transformed_data)
+    # print(transformed_data)
 
     X_input = pd.DataFrame(transformed_data)
     y_pred = model.predict(X_input)

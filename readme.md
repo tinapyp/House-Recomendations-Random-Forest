@@ -28,23 +28,23 @@ This repository contains a FastAPI application that serves as a machine learning
 3. Send POST requests to the `/predict` endpoint with input data in JSON format. For example:
    ```
    POST http://127.0.0.1:8000/predict
-{
-       "Usia": 35,
-       "Status Pernikahan": "Sudah Menikah",
-       "Jumlah Anak": 2,
-       "Pendapatan/Bulan": "Rp. 5.000.000 - Rp. 10.000.000",
-       "Fasilitas Yang Diinginkan": "Garden Lounge, Masjid",
-       "Preferensi Lingkungan": "Dekat Dengan Tempat Ibadah, Dekat Dengan Sarana Perbelanjaan"
-}
+   {
+         "Usia": 35,
+         "Status Pernikahan": "Sudah Menikah",
+         "Jumlah Anak": 2,
+         "Pendapatan/Bulan": "Rp. 5.000.000 - Rp. 10.000.000",
+         "Fasilitas Yang Diinginkan": "Garden Lounge, Masjid",
+         "Preferensi Lingkungan": "Dekat Dengan Tempat Ibadah, Dekat Dengan Sarana Perbelanjaan"
+   }
 
-{
-      "Usia": 35,
-      "Status Pernikahan": "Sudah Menikah",
-      "Jumlah Anak": 2,
-      "Pendapatan/Bulan": "Rp. 2.000.000 - Rp. 5.000.000",
-      "Fasilitas Yang Diinginkan": "CCTV 24 Jam & Security, One Gate System, Jalan Utama Yang Lebar, Jalan Menggunakan Paving Block, TK",
-      "Preferensi Lingkungan": "View Pegunungan, Suasana Sejuk Dan Asri, Dekat Dengan Pusat Kota, Dekat Dengan Exit Tol, Dekat Dengan ATM Center, Dekat Dengan Sarana Pendidikan, Dekat Dengan Sarana Kesehatan, Dekat Dengan Sarana Perbelanjaan, Dekat Dengan Tempat Wisata, Dilalui Dengan SPBU"
-}
+   {
+         "Usia": 35,
+         "Status Pernikahan": "Sudah Menikah",
+         "Jumlah Anak": 2,
+         "Pendapatan/Bulan": "Rp. 2.000.000 - Rp. 5.000.000",
+         "Fasilitas Yang Diinginkan": "CCTV 24 Jam & Security, One Gate System, Jalan Utama Yang Lebar, Jalan Menggunakan Paving Block, TK",
+         "Preferensi Lingkungan": "View Pegunungan, Suasana Sejuk Dan Asri, Dekat Dengan Pusat Kota, Dekat Dengan Exit Tol, Dekat Dengan ATM Center, Dekat Dengan Sarana Pendidikan, Dekat Dengan Sarana Kesehatan, Dekat Dengan Sarana Perbelanjaan, Dekat Dengan Tempat Wisata, Dilalui Dengan SPBU"
+   }
    ```
    Replace the input data with your own values.
    

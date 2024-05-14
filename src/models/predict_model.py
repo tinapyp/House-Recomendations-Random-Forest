@@ -94,7 +94,21 @@ def predict_model(model_path: str, data_to_predict):
     y_pred = model.predict(X_input)
 
     y_pred = y_pred.tolist()
-    y_pred[0][1] = "Komersil" if y_pred[0][0] == "Qianna Residence 2" else y_pred[0][1]
+    if y_pred[0][0] == "Qianna Residence 2":
+        y_pred[0][1] = "Komersil"
+        y_pred[0][2] = "30/60"
+    elif y_pred[0][0] == "Setiabudi Estate":
+        y_pred[0][1] = "Komersil"
+        y_pred[0][2] = "36/72"
+    elif y_pred[0][0] == "Goalpara Hills":
+        y_pred[0][1] = "Subsidi"
+        y_pred[0][2] = "30/60"
+    elif y_pred[0][0] == "Bukit Cibadak Asri":
+        y_pred[0][1] = "Subsidi"
+        y_pred[0][2] = "30/60"
+    elif y_pred[0][0] == "Bukit Pinus Banjaran":
+        y_pred[0][1] = "Subsidi"
+        y_pred[0][2] = "30/60"
 
     prediction = {
         "namaPerumahan": y_pred[0][0],

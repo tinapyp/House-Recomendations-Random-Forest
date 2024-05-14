@@ -94,6 +94,7 @@ def predict_model(model_path: str, data_to_predict):
     y_pred = model.predict(X_input)
 
     y_pred = y_pred.tolist()
+    y_pred[0][1] = "Komersil" if y_pred[0][0] == "Qianna Residence 2" else y_pred[0][1]
 
     prediction = {
         "namaPerumahan": y_pred[0][0],

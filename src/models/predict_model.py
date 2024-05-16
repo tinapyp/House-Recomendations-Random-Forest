@@ -96,7 +96,6 @@ def predict_model(model_path: str, data_to_predict):
     y_pred = y_pred.tolist()
     if y_pred[0][0] == "Qianna Residence 2":
         y_pred[0][1] = "Komersil"
-        y_pred[0][2] = "30/60"
     elif y_pred[0][0] == "Setiabudi Estate":
         y_pred[0][1] = "Komersil"
         y_pred[0][2] = "36/72"

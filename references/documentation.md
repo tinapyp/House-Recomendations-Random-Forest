@@ -1,42 +1,38 @@
-Certainly! Below is the documentation explaining the steps taken in building this model:
+## Dokumentasi: Building a Content-Based Filtering Model
 
----
+### Tujuan:
+Tujuan dari proyek ini adalah untuk mengembangkan model filtering berbasis konten untuk memprediksi beberapa atribut rumah berdasarkan preferensi dan karakteristik konsumen.
 
-## Documentation: Building a Content-Based Filtering Model
+### Langkah yang Diambil:
 
-### Objective:
-The objective of this project is to develop a content-based filtering model to predict certain attributes of houses based on consumer preferences and characteristics.
+1. **Pemuatan Data:**
+   - Data dimuat dari file CSV menggunakan library Pandas.
 
-### Steps Taken:
+2. **Pra-Pemrosesan Data:**
+   - Pembaruan Nama Kolom: Beberapa nama kolom diperbarui untuk kejelasan.
+   - Menghapus Kolom yang Tidak Diperlukan: Kolom yang dianggap tidak diperlukan untuk model dihapus.
+   - Seleksi Fitur: Fitur-fitur relevan termasuk usia, status pernikahan, jumlah anak, pendapatan per bulan, fasilitas yang diinginkan, dan preferensi lingkungan dipilih.
 
-1. **Data Loading:**
-   - The data was loaded from a CSV file using the Pandas library.
+3. **Pengkodean Variabel Kategorikal:**
+   - Pengkodean Label: Variabel kategorikal seperti status pernikahan dan pendapatan per bulan dikodekan menggunakan LabelEncoder.
+   - Pengkodean One-Hot: Fasilitas yang diinginkan dan preferensi lingkungan dikodekan one-hot untuk mengubahnya menjadi fitur numerik yang sesuai untuk pemodelan.
 
-2. **Data Preprocessing:**
-   - Renaming Columns: Certain column names were renamed for clarity.
-   - Dropping Unnecessary Columns: Columns deemed unnecessary for the model were dropped.
-   - Feature Selection: Relevant features including age, marital status, number of children, income per month, desired facilities, and environmental preferences were selected.
+4. **Penskalaan Fitur:**
+   - Penskalaan Standar: Usia discaling menggunakan StandardScaler untuk memastikan semua fitur berada pada skala yang sama.
 
-3. **Encoding Categorical Variables:**
-   - Label Encoding: Categorical variables like marital status and income per month were encoded using LabelEncoder.
-   - One-Hot Encoding: Desired facilities and environmental preferences were one-hot encoded to convert them into numerical features suitable for modeling.
+5. **Pemisahan Data Latih dan Uji:**
+   - Dataset dibagi menjadi set data latih dan uji dengan rasio 80:20, masing-masing.
 
-4. **Feature Scaling:**
-   - Standard Scaling: Age was scaled using StandardScaler to ensure all features are on the same scale.
+6. **Seleksi dan Pelatihan Model:**
+   - Klasifikasi Random Forest: Random Forest dipilih sebagai model karena kemampuannya untuk menangani data kategorikal dan hubungan non-linear dengan efektif.
+   - Model dilatih pada data latih.
 
-5. **Train-Test Split:**
-   - The dataset was split into training and testing sets with a ratio of 80:20, respectively.
+7. **Evaluasi Model:**
+   - Perhitungan Akurasi: Akurasi model dievaluasi secara terpisah untuk setiap output (Nama Perumahan, Jenis Rumah, Tipe Rumah).
+   - Matriks Confusion: Matriks confusion dihasilkan untuk menilai kinerja model pada setiap output.
 
-6. **Model Selection and Training:**
-   - Random Forest Classifier: Random Forest was chosen as the model due to its ability to handle categorical data and nonlinear relationships effectively.
-   - The model was trained on the training data.
+8. **Serialisasi Model:**
+   - Model yang dilatih diserialkan menggunakan pickle untuk penggunaan di masa mendatang.
 
-7. **Model Evaluation:**
-   - Accuracy Calculation: The accuracy of the model was evaluated separately for each output (Nama Perumahan, Jenis Rumah, Tipe Rumah).
-   - Confusion Matrix: Confusion matrices were generated to assess the performance of the model on each output.
-
-8. **Model Serialization:**
-   - The trained model was serialized using pickle for future use.
-
-### Conclusion:
-In conclusion, a content-based filtering model was successfully built to predict certain attributes of houses based on consumer preferences and characteristics. The model achieved satisfactory accuracy, and its performance was evaluated using confusion matrices. The serialized model is now ready for deployment and integration into applications for recommending houses to consumers based on their preferences.
+### Kesimpulan:
+Secara keseluruhan, model filtering berbasis konten berhasil dibangun untuk memprediksi beberapa atribut rumah berdasarkan preferensi dan karakteristik konsumen. Model mencapai akurasi yang memuaskan, dan kinerjanya dievaluasi menggunakan matriks confusion

@@ -26,7 +26,7 @@ This repository contains a FastAPI application that serves as a machine learning
    ```
 2. Run docker file
    ```
-   docker run -p 80:8000 house-ml:v1.0
+   docker run -p 8000:8000 house-ml:v1.0
    ```
 
 **Usage:**

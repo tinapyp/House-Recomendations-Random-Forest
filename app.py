@@ -26,7 +26,6 @@ async def predict(data: dict):
 async def model_prediction(request: Request):
     try:
         data = await request.form()
-
         usia = data["usia"]
         status_pernikahan = data["status_pernikahan"]
         jumlah_anak = data["jumlah_anak"]
@@ -54,4 +53,4 @@ async def model_prediction(request: Request):
 if __name__ == "__main__":
     import uvicorn
 
-    uvicorn.run(app, host="127.0.0.1", port=8000)
+    uvicorn.run(app, host="0.0.0.0", port=8000)

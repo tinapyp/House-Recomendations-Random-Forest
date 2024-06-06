@@ -1,41 +1,21 @@
 **House Recommendations Random Forest**
 
-**Description:**
-This repository contains a FastAPI application that serves as a machine learning prediction service. The service exposes an endpoint `/predict` which accepts POST requests containing data to be predicted. Upon receiving a request, the service uses a pre-trained machine learning model to make predictions on the provided data and returns the predictions to the client.
+**Deskripsi:**
+Aplikasi FastAPI yang berfungsi sebagai layanan prediksi machine learning. Layanan ini mengekspos sebuah endpoint RESTful /predict yang menerima permintaan POST berisi data yang akan diprediksi. Setelah menerima permintaan, layanan menggunakan model machine learning yang telah dilatih sebelumnya untuk membuat prediksi pada data yang diberikan dan mengembalikan hasil prediksi ke klien.
 
 **Features:**
-- Exposes a RESTful API endpoint `/predict` for making predictions.
-- Supports POST requests with JSON payloads containing input data.
-- Handles data preprocessing and prediction using a pre-trained machine learning model.
-- Returns prediction results in JSON format.
+- Mengekspos endpoint RESTful /predict untuk melakukan prediksi.
+- Mendukung permintaan POST dengan payload JSON yang berisi data input.
+- Menangani pra-pemrosesan data dan prediksi menggunakan model machine learning yang telah dilatih sebelumnya.
+- Mengembalikan hasil prediksi dalam format JSON.
 
-**Installation:**
-1. Clone the repository:
-   ```
-   git clone https://github.com/tinapyp/HouseRecommendation-Random-Forest.git
-   ```
-2. Install dependencies:
-   ```
-   pip install -r requirements.txt
-   ```
-
-**Docker:**
-1. Build docker using dockerfile
-   ```
-   docker build -t house-ml:v1.0 -f Dockerfile .
-   ```
-2. Run docker file
-   ```
-   docker run -p 8000:8000 house-ml:v1.0
-   ```
-
-**Usage:**
-1. Ensure that the pre-trained machine learning model file (`model.pkl`) is placed in the `models` directory.
-2. Start the FastAPI server by running the `app.py` script:
+**Penggunaan:**
+1. Pastikan file model machine learning yang telah dilatih (`model.pkl`) diletakkan di direktori `models`.
+2. Mulai server FastAPI dengan menjalankan script `app.py`:
    ```
    uvicorn app:app --host 127.0.0.1 --port 8000
    ```
-3. Send POST requests to the `/predict` endpoint with input data in JSON format. For example:
+3. Kirimkan permintaan POST ke endpoint `/predict` dengan data input dalam format JSON. Contoh:
    ```
    POST http://127.0.0.1:8000/predict
    {
@@ -48,14 +28,152 @@ This repository contains a FastAPI application that serves as a machine learning
    }
 
    {
+  "namaPerumahan": "Qianna Residence 2",
+  "jenisRumah": "Komersil",
+  "tipeRumah": "30/60"
+   }
+
+```
+   ```
+   Gantilah data input dengan nilai-nilai yang diinginkan.
+   
+4. Server akan merespons dengan hasil prediksi dalam format JSON.
+
+````
+
+```
+    {
          "Usia": 35,
          "Status Pernikahan": "Sudah Menikah",
          "Jumlah Anak": 2,
-         "Pendapatan/Bulan": "Rp. 2.000.000 - Rp. 5.000.000",
+         "Pendapatan/Bulan": "Rp. 5.000.000 - Rp. 10.000.000",
          "Fasilitas Yang Diinginkan": "CCTV 24 Jam & Security, One Gate System, Jalan Utama Yang Lebar, Jalan Menggunakan Paving Block, TK",
          "Preferensi Lingkungan": "View Pegunungan, Suasana Sejuk Dan Asri, Dekat Dengan Pusat Kota, Dekat Dengan Exit Tol, Dekat Dengan ATM Center, Dekat Dengan Sarana Pendidikan, Dekat Dengan Sarana Kesehatan, Dekat Dengan Sarana Perbelanjaan, Dekat Dengan Tempat Wisata, Dilalui Dengan SPBU"
    }
-   ```
-   Replace the input data with your own values.
+
+   {
+  "namaPerumahan": "Setiabudi Estate",
+  "jenisRumah": "Komersil",
+  "tipeRumah": "36/72"
+   }
+```
+
+   {
+         "Usia": 28,
+         "Status Pernikahan": "Lajang",
+         "Jumlah Anak": 0,
+         "Pendapatan/Bulan": "Rp. 2.000.000 - Rp. 5.000.000",
+         "Fasilitas Yang Diinginkan": "CCTV 24 Jam & Security, TK",
+         "Preferensi Lingkungan": "Dekat Dengan ATM Center, Dekat Dengan Tempat Kuliner"
+   }
+
+   {
+  "namaPerumahan": "Goalpara Hiills",
+  "jenisRumah": "Subsidi",
+  "tipeRumah": "30/60"
+   }
+
+```
    
-4. The server will respond with the predicted results in JSON format.
+   {
+         "Usia": 28,
+         "Status Pernikahan": "Lajang",
+         "Jumlah Anak": 0,
+         "Pendapatan/Bulan": "Rp. 2.000.000 - Rp. 5.000.000",
+         "Fasilitas Yang Diinginkan": "CCTV 24 Jam & Security, Jalan Utama Yang Lebar",
+         "Preferensi Lingkungan": "Dekat Dengan Exit Tol, Dekat Dengan Sarana Perbelanjaan"
+   }
+
+   {
+  "namaPerumahan": "Bukit Pinus Banjaran",
+  "jenisRumah": "Subsidi",
+  "tipeRumah": "30/60"
+   }
+
+```
+
+   {
+         "Usia": 27,
+         "Status Pernikahan": "Sudah Menikah",
+         "Jumlah Anak": 1,
+         "Pendapatan/Bulan": "Rp. 2.000.000 - Rp. 5.000.000",
+         "Fasilitas Yang Diinginkan": "CCTV 24 Jam & Security, Jalan Utama Yang Lebar, Jalan Menggunakan Paving Block",
+         "Preferensi Lingkungan": "View Pegunungan, Suasana Sejuk Dan Asri, Dekat Dengan Pusat Kota, Dekat Dengan Sarana Pendidikan, Dekat Dengan Sarana Kesehatan, Dekat Dengan Sarana Perbelanjaan, Dekat Dengan Tempat Kuliner, Dilalui Dengan SPBU"
+   }
+
+   {
+  "namaPerumahan": "Bukit Cibadak Asri",
+  "jenisRumah": "Subsidi",
+  "tipeRumah": "30/60"
+   }
+
+
+
+```````````````
+{
+         "Usia": 35,
+         "Status Pernikahan": "Sudah Menikah",
+         "Jumlah Anak": 1,
+         "Pendapatan/Bulan": "Rp. 5.000.000 - Rp. 10.000.000",
+         "Fasilitas Yang Diinginkan": "CCTV 24 Jam & Security, One Gate System, Jalan Utama Yang Lebar, Jalan Menggunakan Paving Block, Taman Bermain Anak, TK, Masjid, Garden Lounge, Smart Door Lock, Smart Home System",
+         "Preferensi Lingkungan": "View Pegunungan, Suasana Sejuk Dan Asri, Dekat Dengan Pusat Kota, Dekat Dengan Exit Tol, Dekat Dengan ATM Center, Dekat Dengan Sarana Pendidikan, Dekat Dengan Sarana Kesehatan, Dekat Dengan Sarana Perbelanjaan, Dekat Dengan Tempat Ibadah, Dekat Dengan Tempat Kuliner, Dekat Dengan Tempat Wisata, Dilalui Dengan Kendaraan Umum, Dilalui Dengan SPBU"
+   }
+
+   {
+   "namaPerumahan": "Setiabudi Estate",
+   "jenisRumah": "Komersil",
+   "tipeRumah": "36/72"
+   }
+
+**Data inputan**
+1. Usia: Bebas
+
+2. Status Pernikahan: 
+Sudah Menikah
+Lajang
+
+3. Jumlah Anak: Bebas
+
+4. Pendapatan/Bulan:
+Rp. 2.000.000 - Rp. 5.000.000
+Rp. 5.000.000 - Rp. 10.000.000
+> Rp. 10.000.000
+
+5. Fasilitas:
+CCTV 24 Jam & Security
+One Gate System
+Jalan Utama Yang Lebar
+Jalan Menggunakan Paving Block
+Taman Bermain Anak
+TK
+Masjid
+Garden Lounge
+Smart Door Lock
+Smart Home System
+
+6. Lingkungan:
+View Pegunungan
+Suasana Sejuk Dan Asri
+Dekat Dengan Pusat Kota
+Dekat Dengan Exit Tol
+Dekat Dengan ATM Center
+Dekat Dengan Sarana Pendidikan
+Dekat Dengan Sarana Kesehatan
+Dekat Dengan Sarana Perbelanjaan
+Dekat Dengan Tempat Ibadah
+Dekat Dengan Tempat Kuliner
+Dekat Dengan Tempat Wisata
+Dilalui Dengan Kendaraan Umum
+Dilalui Dengan SPBU
+
+````
+
+**Docker:**
+1. Buat docker menggunakan dockerfile
+   ```
+   docker build -t api-ml:v1.0 -f Dockerfile .
+   ```
+2. Jalankan docker file
+   ```
+   docker run -p 80:8000 api-ml:v1.0
+
